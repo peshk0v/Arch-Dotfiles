@@ -2,4 +2,4 @@ art==6.5
 markdown-it-py==3.0.0
 mdurl==0.1.2
 Pygments==2.19.2
-rich==14.0.0
+colorama==0.4.6
