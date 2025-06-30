@@ -30,7 +30,7 @@ def aprint(text, type=False):
 
 inpt1 = input("Install and config zsh? [Y/n] > ")
 inpt2 = input("Install and config hypridle? [Y/n] > ")
-inpt4 = input("Install astraNeovim? [Y/n] > ")
+inpt4 = input("Install astroNeovim? [Y/n] > ")
 inpt6 = input("Install WPS Office? [y/N] > ")
 
 os.system("clear")
@@ -42,7 +42,7 @@ aprint("Yay installed!", 2)
 aprint("Move to repo folder")
 os.system(f"cd {pathlib.Path(__file__).parent.resolve()}")
 aprint("Installig base packages...")
-os.system("sudo pacman -S hyprpaper hyprshot hyprlock wlogout git curl rofi nano brightnessctl pulseaudio waybar fastfetch kitty htop xorg swww nautilus nwg-look obsidian telegram-desktop discord nerd-fonts ttf-ubuntu-font-family ttf-font-awesome --needed")
+os.system("sudo pacman -S cargo npm hyprpaper hyprshot hyprlock wlogout git curl rofi nano brightnessctl pulseaudio waybar fastfetch kitty htop xorg swww nautilus nwg-look obsidian telegram-desktop discord nerd-fonts ttf-ubuntu-font-family ttf-font-awesome --needed")
 aprint("Base packages installed!", 2)
 aprint("Installig AUR packages...")
 os.system("yay -S ttf-meslo-nerd-font-powerlevel10k zen-browser")
@@ -79,3 +79,34 @@ if checkinpt(inpt2, 1):
     aprint("Configuring hypridle...")
     os.system(f"cp {pathlib.Path(__file__).parent.resolve()}/data/hypridle.conf ~/.config/hypr/")
     aprint("Hypridle", 2)
+
+if checkinpt(inpt3, 1):
+    aprint("Installig AstroNeovim...")
+    os.system("cargo install ripgrep")
+    os.system("sudo pacman -S lazygit gdu bottom nodejs-lts-iron")
+    os.system("git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim")
+    os.system("rm -rf ~/.config/nvim/.git")
+    aprint("AstroNeovim installed!",2)
+
+if checkinpt(inpt4, 2):
+    aprint("Installig WPS Office...")
+    os.system("yay -S wps-office ttf-wps-fonts")
+    aprint("WPS Office installed!",2)
+
+os.system("clear")
+art.tprint("peshk0v", font="blubhead")
+aprint("Installig sddm theme...")
+os.system("git clone -b main --depth=1 https://github.com/uiriansan/SilentSDDM && cd SilentSDDM && ./install.sh")
+os.system(f"cd {pathlib.Path(__file__).parent.resolve()}")
+aprint("Sddm theme installed!",2)
+
+aprint("Installig grub theme...")
+os.system("sudo mkdir -p /boot/grub/themes")
+os.system(f"sudo mv {pathlib.Path(__file__).parent.resolve()}/data/Arcade/ /boot/grub/themes/")
+os.system("sudo pacman -S grub-customizer")
+aprint("Grub theme installed!",2)
+
+os.system("clear")
+art.tprint("Finish!", font="blubhead")
+aprint("Rebooting system...",2)
+os.system("reboot")
