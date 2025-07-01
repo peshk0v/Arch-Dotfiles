@@ -30,8 +30,8 @@ def aprint(text, type=False):
 
 inpt1 = input("Install and config zsh? [Y/n] > ")
 inpt2 = input("Install and config hypridle? [Y/n] > ")
-inpt4 = input("Install astroNeovim? [Y/n] > ")
-inpt6 = input("Install WPS Office? [y/N] > ")
+inpt3 = input("Install astroNeovim? [Y/n] > ")
+inpt4 = input("Install WPS Office? [y/N] > ")
 
 os.system("clear")
 art.tprint("ArchLinux", font="blubhead")
