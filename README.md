@@ -2,4 +2,4 @@
 Config for archlinux on hyprland!
 
 -----
- [] - use better-otter
+ - [ ] use better-otter
